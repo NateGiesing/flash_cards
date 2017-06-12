@@ -11,6 +11,11 @@ class CardTest < MiniTest::Test
      card = Card.new("What is the capital of Alaska", "Juneau")
      expected = "What is the capital of Alaska?"
      assert_equal expected, card.question
- end
+   end
 
+   def test_the_answer
+     card = Card.new("What is the capital of Alaska", "Juneau")
+     expected = "Juneau"
+     assert_equal expected, card.answer
+   end
 end
