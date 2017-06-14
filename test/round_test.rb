@@ -40,4 +40,30 @@ class RoundTest < MiniTest::Test
     assert_equal "Juneau", round.current_card.answer
   end
 
+  def test_it_can_record_guesses
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau")
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars")
+    deck   = Deck.new([card_1, card_2])
+    round  = Round.new(deck)
+
+    assert_instance_of Guess, round.record_guess("Juneau")
+    assert_equal 1, round.guesses.count
+    assert_equal "Correct!", round.guesses.first.feedback
+  end
+
+  def test_correct_guesses
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau")
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars")
+    deck   = Deck.new([card_1, card_2])
+    round  = Round.new(deck)
+
+    assert_instance_of Guess, round.record_guess("Juneau")
+    assert_equal "Correct!", round.guesses.first.feedback
+    assert_equal 1, round.number_correct  
+
+  end
+
+
+
+
 end
