@@ -12,7 +12,7 @@ class Guess
   end
 
   def correct?
-    response == card.answer
+    response.downcase == card.answer.downcase
   end
 
   def feedback

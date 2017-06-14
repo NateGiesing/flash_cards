@@ -13,6 +13,19 @@ attr_reader :deck,
     @index   = 0
   end
 
+  def start
+    puts "Welcome! You are playing with #{deck.cards.length} cards"
+    puts "--------------------------------------------------------"
+    deck.cards.length.times do
+      p "Question: " + current_card.question
+      answer = gets.chomp
+      record_guess(answer)
+      p guesses.last.feedback
+    end
+    puts "****** Game Over! ******"
+    puts "You had #{number_correct} guesses out of #{deck.cards.length} for a score of #{percent_correct} %."
+  end
+
   def current_card
     deck.cards[index]
   end
