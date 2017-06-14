@@ -7,12 +7,20 @@ class Guess
   def initialize(response, card)
     @response = response
     @card     = card
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
 
   end
 
   def correct?
     response == card.answer
+  end
+
+  def feedback
+    if correct? == true
+      "Correct!"
+    else
+      "Incorrect."
+    end
   end
 
 end
