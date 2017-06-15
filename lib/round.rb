@@ -8,7 +8,7 @@ attr_reader :deck,
             :index
 
   def initialize(deck)
-    @deck = deck
+    @deck    = deck
     @guesses = []
     @index   = 0
   end

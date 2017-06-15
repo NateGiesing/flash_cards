@@ -11,7 +11,7 @@ class DeckTest < MiniTest::Test
 
   def test_it_can_store_cards
     card_1 = Card.new("What is the capital of Alaska?", "Juneau")
-    deck = Deck.new([card_1])
+    deck   = Deck.new([card_1])
 
     assert_equal [card_1], deck.cards
   end
@@ -38,7 +38,7 @@ class DeckTest < MiniTest::Test
   def test_it_can_one_count_card
     card_1 = Card.new("What is the capital of Alaska?", "Juneau")
     deck   = Deck.new([card_1])
-    
+
     assert_equal 1, deck.count
   end
 end

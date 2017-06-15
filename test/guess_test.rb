@@ -3,14 +3,14 @@ require './lib/guess'
 class GuessTest < MiniTest::Test
 
   def test_it_exists
-    card = Card.new("What is the capital of Alaska?", "Juneau")
+    card  = Card.new("What is the capital of Alaska?", "Juneau")
     guess = Guess.new("Juneau", card)
     assert_instance_of Guess, guess
   end
 
 
   def test_it_is_correct
-    card = Card.new("What is the capital of Alaska?", "Juneau")
+    card  = Card.new("What is the capital of Alaska?", "Juneau")
     guess = Guess.new("Juneau", card)
     assert_instance_of Card, guess.card
     assert_equal "Juneau", guess.response
@@ -18,7 +18,7 @@ class GuessTest < MiniTest::Test
   end
 
   def test_it_is_false
-    card = Card.new("What is the capital of Alaska?", "Juneau")
+    card  = Card.new("What is the capital of Alaska?", "Juneau")
     guess = Guess.new("Taco", card)
     assert_instance_of Card, guess.card
     assert_equal "Taco", guess.response
@@ -26,20 +26,20 @@ class GuessTest < MiniTest::Test
   end
 
   def test_response_correct_if_correct
-    card = Card.new("What is the capital of Alaska?", "Juneau")
+    card  = Card.new("What is the capital of Alaska?", "Juneau")
     guess = Guess.new("Juneau", card)
     assert guess.correct?
     assert_equal "Correct!", guess.feedback
   end
 
   def test_response_incorrect_if_false
-    card = Card.new("What is the capital of Alaska?", "Juneau")
+    card  = Card.new("What is the capital of Alaska?", "Juneau")
     guess = Guess.new("Taco", card)
     assert_equal "Incorrect.", guess.feedback
   end
 
   def test_response_incorrect
-    card = Card.new("Which planet is closest to the sun?", "Mercury")
+    card  = Card.new("Which planet is closest to the sun?", "Mercury")
     guess = Guess.new("Saturn", card)
     assert_instance_of Card, guess.card
     assert_equal "Mercury", guess.card.answer
